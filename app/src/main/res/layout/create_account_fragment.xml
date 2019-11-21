@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.plantroom.view.sign_in.create_account.data.CreateAccountViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/username_edittext"
+            android:layout_width="match_parent"
+            android:hint="Username"
+            android:text="@={viewModel.username}"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/password_edittext"
+            android:layout_width="match_parent"
+            android:text="@={viewModel.password}"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/email_edittext"
+            android:layout_width="match_parent"
+            android:hint="Email"
+            android:text="@={viewModel.email}"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="@{viewModel.isReadyToLogin}"
+            android:onClick="@{() -> viewModel.register()}"
+            android:text="sign in" />
+
+        <Button
+            android:id="@+id/google_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.loginWithGoogle()}"
+            android:text="sign in with google" />
+    </LinearLayout>
+</layout>
