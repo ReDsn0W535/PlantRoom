@@ -5,9 +5,8 @@ import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKeys
 import com.example.plantroom.view.main.MainActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
@@ -31,8 +30,8 @@ interface AppModule {
 
         @Provides
         @JvmStatic
-        fun provideGoogleSignInClient(context: Context, gso: GoogleSignInOptions): GoogleSignInClient {
-            return GoogleSignIn.getClient(context, gso);
+        fun provideGoogleSignInClient(): FirebaseAuth {
+            return FirebaseAuth.getInstance()
         }
 
         @Provides

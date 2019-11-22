@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "153073346781",
+    "firebase_url": "https://plantroom-73778.firebaseio.com",
+    "project_id": "plantroom-73778",
+    "storage_bucket": "plantroom-73778.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153073346781:android:61fbb5bdbb86e6ec4b1334",
+        "android_client_info": {
+          "package_name": "com.example.plantroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153073346781-7larlu4vbh3mkndjcbdf244etufi9r3l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.plantroom",
+            "certificate_hash": "40a3090fd33cc863eff86099b17de63d9c69bf8c"
+          }
+        },
+        {
+          "client_id": "153073346781-0sskpnv0156mjqgq8v71e9q5ifdfmmlt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPVdFpQVuGAfeNo1rP4MjfpEglQk75LzM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153073346781-0sskpnv0156mjqgq8v71e9q5ifdfmmlt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

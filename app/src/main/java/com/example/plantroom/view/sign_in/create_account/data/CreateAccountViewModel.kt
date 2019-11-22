@@ -5,13 +5,11 @@ import androidx.lifecycle.*
 import com.example.plantroom.repository.other.User
 import com.example.plantroom.view.base.BaseViewModel
 import com.example.plantroom.view.sign_in.create_account.navigator.CreateAccountNavigator
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import java.util.regex.Pattern
 import javax.inject.Inject
 
 class CreateAccountViewModel @Inject constructor(
-    context: Context,
-    googleSignInClient: GoogleSignInClient
+    context: Context
 ) : BaseViewModel<CreateAccountNavigator>(context) {
 
     var username = MutableLiveData<String>()
@@ -52,7 +50,7 @@ class CreateAccountViewModel @Inject constructor(
         return true
     }
 
-    fun register(){
+    fun register() {
         var user = User(name = username.value, password = password.value, email = email.value)
 
     }
