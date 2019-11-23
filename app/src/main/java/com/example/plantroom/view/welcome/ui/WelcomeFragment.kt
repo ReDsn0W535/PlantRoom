@@ -30,13 +30,8 @@ class WelcomeFragment(layout : Int) : BaseFragment<WelcomeFragmentBinding, Welco
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.setNavigator(this)
+        viewModel.checkOnLogin()
     }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-
 
     override fun createAccount() {
         getBaseActivity().replaceFragment(CreateAccountFragment(R.layout.create_account_fragment), "CreateAccountFragment")
@@ -46,7 +41,7 @@ class WelcomeFragment(layout : Int) : BaseFragment<WelcomeFragmentBinding, Welco
         getBaseActivity().replaceFragment(SignInFragment(R.layout.create_account_fragment), "SignInFragment")
     }
 
-    override fun isLogined() {
+    override fun isLoginedAlready() {
         TODO("переход к следующему блоку") //To change body of created functions use File | Settings | File Templates.
     }
 

@@ -7,5 +7,5 @@ interface WelcomeNavigator : BaseNavigator{
 
     fun login()
 
-    fun isLogined()
+    fun isLoginedAlready()
 }

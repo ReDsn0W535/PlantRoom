@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.plantroom.dagger2.scope.ViewModelKey
 import com.example.plantroom.ViewModelProviderFactory
 import com.example.plantroom.view.main.MainViewModel
+import com.example.plantroom.view.quiz.data.QuizViewModel
 import com.example.plantroom.view.sign_in.create_account.data.CreateAccountViewModel
 import com.example.plantroom.view.sign_in.sign_in.data.SignInViewModel
 import com.example.plantroom.view.welcome.data.WelcomeViewModel
@@ -37,5 +38,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CreateAccountViewModel::class)
     abstract fun bindCreateAccountViewModel(viewModel : CreateAccountViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(QuizViewModel::class)
+    abstract fun bindQuizViewModel(viewModel : QuizViewModel): ViewModel
 
 }

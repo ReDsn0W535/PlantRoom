@@ -3,6 +3,7 @@ package com.example.plantroom.dagger2.module.modules
 import androidx.fragment.app.FragmentManager
 import com.example.plantroom.dagger2.scope.ActivityScope
 import com.example.plantroom.dagger2.scope.FragmentScope
+import com.example.plantroom.view.quiz.ui.QuizFragment
 import com.example.plantroom.view.sign_in.create_account.ui.CreateAccountFragment
 import com.example.plantroom.view.sign_in.sign_in.ui.SignInFragment
 import com.example.plantroom.view.welcome.ui.WelcomeFragment
@@ -27,4 +28,8 @@ interface MainActivityModule{
     @FragmentScope
     @ContributesAndroidInjector(modules = [FragmentModule::class])
     fun createAccountFragment() : CreateAccountFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [FragmentModule::class])
+    fun quizFragment() : QuizFragment
 }

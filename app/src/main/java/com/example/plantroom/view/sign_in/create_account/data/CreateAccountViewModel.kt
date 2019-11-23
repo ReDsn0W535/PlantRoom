@@ -1,20 +1,27 @@
 package com.example.plantroom.view.sign_in.create_account.data
 
 import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.*
-import com.example.plantroom.repository.other.User
+import com.example.plantroom.repository.firebase.FirebaseAuthRepository
+import com.example.plantroom.repository.data.User
 import com.example.plantroom.view.base.BaseViewModel
 import com.example.plantroom.view.sign_in.create_account.navigator.CreateAccountNavigator
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.regex.Pattern
 import javax.inject.Inject
 
 class CreateAccountViewModel @Inject constructor(
-    context: Context
+    context: Context, var firebaseAuthRepository: FirebaseAuthRepository
 ) : BaseViewModel<CreateAccountNavigator>(context) {
 
     var username = MutableLiveData<String>()
     var password = MutableLiveData<String>()
     var email = MutableLiveData<String>()
+
     var isReadyToLogin = CombinedLiveData<Boolean, String>(
         email to this::isEmailValid,
         password to { pass -> (pass.length >= 8) },
@@ -24,7 +31,7 @@ class CreateAccountViewModel @Inject constructor(
         !dataArray.contains(false)
     }
 
-    fun loginWithGoogle() {
+    fun loginWithGoogle() = viewModelScope.launch {
 
     }
 
@@ -50,8 +57,27 @@ class CreateAccountViewModel @Inject constructor(
         return true
     }
 
-    fun register() {
+    fun registerWithEmailAndPassword() {
         var user = User(name = username.value, password = password.value, email = email.value)
+        var authResult = viewModelScope.async {
+            return@async user.email.let {
+                user.password.let { it1 ->
+                    firebaseAuthRepository.createUserWithCredentials(
+                        email = it!!,
+                        password = it1!!
+                    )
+                }
+            }
 
+        }
+        viewModelScope.launch {
+            if (authResult.await().sucess)
+                withContext(Dispatchers.Main) {
+                    getNavigator()?.goToQuiz()
+                }
+            else Toast.makeText(context, authResult.getCompleted().errorMessage, Toast.LENGTH_LONG).show()
+        }
     }
+
+
 }

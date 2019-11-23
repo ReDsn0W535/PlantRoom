@@ -3,6 +3,9 @@ package com.example.plantroom.view.base
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import java.lang.ref.WeakReference
 
 abstract class BaseViewModel<T : BaseNavigator>(var context: Context) : AndroidViewModel(context as Application), LifecycleObserver{

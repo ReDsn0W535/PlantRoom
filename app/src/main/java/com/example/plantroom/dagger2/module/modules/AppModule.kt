@@ -30,7 +30,7 @@ interface AppModule {
 
         @Provides
         @JvmStatic
-        fun provideGoogleSignInClient(): FirebaseAuth {
+        fun provideFirebaseAuth(): FirebaseAuth {
             return FirebaseAuth.getInstance()
         }
 

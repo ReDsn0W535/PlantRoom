@@ -31,6 +31,7 @@
             android:id="@+id/email_edittext"
             android:layout_width="match_parent"
             android:hint="Email"
+            android:inputType="textWebEmailAddress"
             android:text="@={viewModel.email}"
             android:layout_height="wrap_content"/>
 
@@ -39,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="@{viewModel.isReadyToLogin}"
-            android:onClick="@{() -> viewModel.register()}"
+            android:onClick="@{() -> viewModel.registerWithEmailAndPassword()}"
             android:text="sign in" />
 
         <Button

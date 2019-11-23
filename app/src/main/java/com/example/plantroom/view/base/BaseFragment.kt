@@ -9,6 +9,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.example.plantroom.view.base.uiLifecycleScope.UiLifecycleScope
 import dagger.android.support.AndroidSupportInjection
 
 abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel<*>>(layout: Int) :
@@ -17,6 +18,8 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel<*>>(layout: I
     private var mViewModel: V? = null
     private lateinit var rootActivity: BaseActivity<*, *>
     private var mRootView: View? = null
+    private val uiScope = UiLifecycleScope()
+
     open fun getViewDataBinding() = mViewDataBinding
     abstract fun getBindingVariable(): Int
 
@@ -32,6 +35,7 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel<*>>(layout: I
         super.onCreate(savedInstanceState)
         mViewModel = getViewModel()
         lifecycle.addObserver(mViewModel as V)
+        lifecycle.addObserver(uiScope)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
