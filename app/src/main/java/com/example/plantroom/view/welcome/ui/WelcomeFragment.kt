@@ -1,6 +1,7 @@
 package com.example.plantroom.view.welcome.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.example.plantroom.BR
 import com.example.plantroom.R
@@ -30,7 +31,8 @@ class WelcomeFragment(layout : Int) : BaseFragment<WelcomeFragmentBinding, Welco
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.setNavigator(this)
-        viewModel.checkOnLogin()
+        if (viewModel.isLoginedAlready())
+            isLoginedAlready()
     }
 
     override fun createAccount() {
@@ -38,11 +40,11 @@ class WelcomeFragment(layout : Int) : BaseFragment<WelcomeFragmentBinding, Welco
     }
 
     override fun login() {
-        getBaseActivity().replaceFragment(SignInFragment(R.layout.create_account_fragment), "SignInFragment")
+        getBaseActivity().replaceFragment(SignInFragment(R.layout.sign_in_fragment), "SignInFragment")
     }
 
     override fun isLoginedAlready() {
-        TODO("переход к следующему блоку") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(this.context, "isLoginedAlready", Toast.LENGTH_SHORT).show()
     }
 
 }

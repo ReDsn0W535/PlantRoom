@@ -3,4 +3,44 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+
+
+
+    <color name="color_green_26">#295A29</color> <!-- Фон кнопок в нажатом состоянии -->
+    <color name="color_green_36">#3A7E3A</color> <!-- Фон кнопок в ховер состоянии -->
+    <color name="color_green_46">#4AA14A</color> <!-- Фон кнопок в дефолтном состоянии, Main brand color-->
+    <color name="color_green_52">#60B158</color> <!-- Статус успеха -->
+
+    <color name="color_black_00">#000000</color> <!--Текст для главных крупных заголовков страниц-->
+    <color name="color_black_20">#333333</color> <!--Основной текст-->
+    <color name="color_black_40">#666666</color> <!--Второстепенный текст-->
+
+    <color name="color_gray_40">#61616A</color> <!--Иконки и некоторые текстовые элементы-->
+    <color name="color_gray_60">#9399A1</color> <!--Неактивное состояние основного текста-->
+    <color name="color_gray_75">#BBBFC4</color> <!--Текст-->
+    <color name="color_gray_87">#DDDFE0</color> <!--Разделители, фон кнопок в состоянии disabled-->
+    <color name="color_gray_95">#F2F2F2</color> <!--Бэкграунд-->
+
+    <color name="color_lightblue_80">#B9CDDF</color> <!-- Выбранные карточки в квизе -->
+    <color name="color_lightblue_89">#DBE2EB</color> <!-- Фон инпутов в нажатом состоянии -->
+    <color name="color_lightblue_90">#DDE4ED</color> <!-- Фон инпутов в наведенном состоянии, разделители -->
+    <color name="color_lightblue_95">#EFF2F7</color> <!-- Фон карточек, инпутов и серчбаров в дефолт состоянии -->
+
+
+    <color name="color_blue_50">#7D9FCA</color> <!-- Фон -->
+    <color name="color_blue_60">#729AC0</color> <!-- Фон -->
+    <color name="color_blue_64">#7D9FCA</color> <!-- Ссылочные элементы -->
+
+    <color name="color_red_49">#E01F19</color> <!-- Статус ошибки, индикатор о необходимости полива, наклейка на иконках -->
+    <color name="color_red_66">#FF5D52</color> <!-- Статус ошибки, индикатор о необходимости полива, наклейка на иконках -->
+    <color name="color_red_95">#FFE5E3</color> <!-- Фон элементов в дефолт состоянии ошибка -->
+
+    <color name="color_yellow_66">#FFCF52</color> <!-- Индикатор, о достаточно скорой необходимости полива -->
+
+    <color name="color_lightgreen_73">#ACC7B6</color> <!-- Фон -->
+    <color name="color_lightgreen_83">#CBDCD1</color> <!-- Фон -->
+    <color name="color_lightgreen_90">#E1EAE4</color> <!-- Фон -->
+    <color name="color_lightgreen_97">#F6F9F7</color> <!-- Фон -->
+
 </resources>

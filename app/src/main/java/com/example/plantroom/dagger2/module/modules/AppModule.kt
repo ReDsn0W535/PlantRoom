@@ -7,6 +7,8 @@ import androidx.security.crypto.MasterKeys
 import com.example.plantroom.view.main.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
@@ -24,9 +26,10 @@ interface AppModule {
     companion object {
         @Provides
         @JvmStatic
-        fun provideSignInOptions(): GoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .build();
+        fun provideSignInOptions(): GoogleSignInOptions =
+            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
 
         @Provides
         @JvmStatic
@@ -36,7 +39,7 @@ interface AppModule {
 
         @Provides
         @JvmStatic
-        fun provideSharedPreferences(context: Context) : SharedPreferences {
+        fun provideSharedPreferences(context: Context): SharedPreferences {
             val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
 
             return EncryptedSharedPreferences.create(
@@ -46,6 +49,12 @@ interface AppModule {
                 EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
                 EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
             )
+        }
+
+        @Provides
+        @JvmStatic
+        fun provideStorageReferences(): FirebaseStorage {
+            return FirebaseStorage.getInstance()
         }
     }
 }

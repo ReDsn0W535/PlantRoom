@@ -1,7 +1,10 @@
 package com.example.plantroom.view.quiz.ui
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import androidx.core.view.get
 import androidx.databinding.library.baseAdapters.BR
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProviders
 import com.example.plantroom.R
 import com.example.plantroom.ViewModelProviderFactory
@@ -22,6 +25,7 @@ class QuizFragment(layout : Int) : BaseFragment<QuizFragmentBinding,QuizViewMode
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.setNavigator(this)
+        var cardMap = HashMap<String, LiveData<Drawable>>()
     }
 
     override fun getViewModel(): QuizViewModel {

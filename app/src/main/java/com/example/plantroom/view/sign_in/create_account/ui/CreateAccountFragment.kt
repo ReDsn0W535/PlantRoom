@@ -36,6 +36,6 @@ class CreateAccountFragment(layout: Int) :
     }
 
     override fun goToQuiz() {
-        getBaseActivity().addFragment(QuizFragment(R.layout.quiz_fragment), "QuizFragment")
+        getBaseActivity().replaceFragment(QuizFragment(R.layout.quiz_fragment), "QuizFragment")
     }
 }

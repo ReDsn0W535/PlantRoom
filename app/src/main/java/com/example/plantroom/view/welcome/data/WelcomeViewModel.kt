@@ -11,8 +11,8 @@ import javax.inject.Inject
 
 class WelcomeViewModel @Inject constructor(
     context: Context,
-    var prefsRepository: PrefsRepository,
-    var firebaseAuthRepository: FirebaseAuthRepository
+    private var prefsRepository: PrefsRepository,
+    private var firebaseAuthRepository: FirebaseAuthRepository
 ) :
     BaseViewModel<WelcomeNavigator>(context) {
 
@@ -24,16 +24,6 @@ class WelcomeViewModel @Inject constructor(
         getNavigator()?.createAccount()
     }
 
-    private fun checkForLogin() {
-        if (firebaseAuthRepository.isLoginedAlready())
-            getNavigator()?.isLoginedAlready()
-    }
-
-
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    internal fun checkOnLogin() {
-        if (prefsRepository.isUserLogon())
-            checkForLogin()
-    }
-
+    internal fun isLoginedAlready(): Boolean = firebaseAuthRepository.isLoginedAlready()
 }

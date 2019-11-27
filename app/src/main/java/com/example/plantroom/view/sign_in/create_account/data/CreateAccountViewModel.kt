@@ -35,10 +35,6 @@ class CreateAccountViewModel @Inject constructor(
 
     }
 
-    override fun onCleared() {
-        super.onCleared()
-    }
-
     private fun isEmailValid(email: String): Boolean {
         val regExpn = "(?:[a-z0-9!#\$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#\$%&'*+/=?^_`{|}~-]+)*|" +
                 "\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\" +
@@ -58,24 +54,26 @@ class CreateAccountViewModel @Inject constructor(
     }
 
     fun registerWithEmailAndPassword() {
-        var user = User(name = username.value, password = password.value, email = email.value)
-        var authResult = viewModelScope.async {
-            return@async user.email.let {
-                user.password.let { it1 ->
-                    firebaseAuthRepository.createUserWithCredentials(
-                        email = it!!,
-                        password = it1!!
-                    )
-                }
+        var user = User(name = username.value!!, password = password.value!!, email = email.value!!)
+        viewModelScope.launch {
+            var createAccountResult = async(Dispatchers.IO) {
+                firebaseAuthRepository.createUserWithCredentials(user).result
+            }
+            var signInResult = async(Dispatchers.IO) {
+                createAccountResult.await()
+                firebaseAuthRepository.loginWithCredentials(user)
             }
 
-        }
-        viewModelScope.launch {
-            if (authResult.await().sucess)
+            var result = signInResult.await()
+            if (result.sucess) {
                 withContext(Dispatchers.Main) {
                     getNavigator()?.goToQuiz()
                 }
-            else Toast.makeText(context, authResult.getCompleted().errorMessage, Toast.LENGTH_LONG).show()
+            } else Toast.makeText(
+                context,
+                result.errorMessage,
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 

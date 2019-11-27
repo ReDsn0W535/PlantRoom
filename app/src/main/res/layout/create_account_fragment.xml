@@ -39,6 +39,7 @@
             android:id="@+id/sign_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/primary_button"
             android:enabled="@{viewModel.isReadyToLogin}"
             android:onClick="@{() -> viewModel.registerWithEmailAndPassword()}"
             android:text="sign in" />
@@ -46,6 +47,7 @@
         <Button
             android:id="@+id/google_sign_in"
             android:layout_width="match_parent"
+            android:background="@drawable/primary_button"
             android:layout_height="wrap_content"
             android:onClick="@{() -> viewModel.loginWithGoogle()}"
             android:text="sign in with google" />

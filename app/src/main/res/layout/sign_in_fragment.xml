@@ -11,7 +11,34 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/password_edittext"
+            android:layout_width="match_parent"
+            android:text="@={viewModel.pass}"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:layout_height="wrap_content"/>
 
+        <EditText
+            android:id="@+id/email_edittext"
+            android:layout_width="match_parent"
+            android:hint="Email"
+            android:inputType="textWebEmailAddress"
+            android:text="@={viewModel.email}"
+            android:layout_height="wrap_content"/>
 
+        <Button
+            android:id="@+id/sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="@{viewModel.isReadyToLogin}"
+            android:onClick="@{() -> viewModel.loginWithEmailAndPassword()}"
+            android:text="log in" />
+
+        <Button
+            android:id="@+id/google_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sign in with google" />
     </LinearLayout>
 </layout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
 
     <data>
 
@@ -15,6 +16,7 @@
         android:weightSum="100">
 
         <GridLayout
+            android:id="@+id/quiz_grid_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -28,10 +30,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.cardview.widget.CardView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                />
+            <include
+                layout="@layout/quiz_cardview"
+                android:text="qasdfg"
+                app:picture="@{viewModel.tempDrawable}"/>
         </GridLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

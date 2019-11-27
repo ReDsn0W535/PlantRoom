@@ -10,4 +10,14 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="preferences_is_login_completed">LoginCompleted</string>
+
+    <string name="quiz_home">Дома</string>
+    <string name="quiz_office">В офиcе</string>
+    <string name="quiz_many_people_place">В ТЦ и других многолюдных местах</string>
+    <string name="quiz_present">Это подарок</string>
+
+    <string name="quiz_home_address">quiz_house.png</string>
+    <string name="quiz_office_address">quiz_office.png</string>
+    <string name="quiz_many_people_place_address">quiz_many_people_place.png</string>
+    <string name="quiz_present_address">quiz_present.png</string>
 </resources>
